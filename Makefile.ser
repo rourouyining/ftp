@@ -1,0 +1,18 @@
+CC=gcc
+
+OBJ=ftp_server.o
+
+LIB= -lpthread
+INCLUDE=
+CFLAGS= -g -Wall
+
+target=ftp_server
+
+all:$(OBJ)
+	$(CC) $^ -o $(target) $(LIB)
+
+%.o:%.c
+	$(CC) $(CFLAGS) -c $< -o $@ $(INCLUDE)
+
+clean:
+	rm -rf *.o $(target)
